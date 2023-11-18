@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "Landing Page | rajputhemant.me",
+  "short_name": "Landing Page",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "🌀 Personal landing page website built with QwickCity, Typescript & Tailwind CSS."
+}
