@@ -56,11 +56,7 @@ const config = {
       },
 
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        mono: ["var(--font-mono)"],
-        poppins: ["var(--font-poppins)"],
-        overpass: ["var(--font-overpass)"],
-        incognito: ["var(--font-incognito)"],
+        sans: ["Geist", ...fontFamily.sans],
       },
     },
   },

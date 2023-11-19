@@ -47,7 +47,14 @@ export const ThemeSwitcher = component$<ThemeSwitcherProps>(
     });
 
     return (
-      <button onClick$={toggleTheme} {...props}>
+      <button
+        aria-label={`Switch to ${
+          theme.value === "dark" ? "light" : "dark"
+        } mode`}
+        aria-pressed={theme.value === "dark"}
+        onClick$={toggleTheme}
+        {...props}
+      >
         <Sun
           aria-hidden="true"
           class="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
