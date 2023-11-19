@@ -1,204 +1,187 @@
+import { $, component$, useSignal } from "@builder.io/qwik";
+
+import { services } from "~/config/constants";
+import { siteConfig } from "~/config/site";
+import { cn } from "~/lib/utils";
 import {
-  $,
-  component$,
-  useSignal,
-  useStore,
-  useStylesScoped$,
-} from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
-import {
-  LuClipboard,
-  LuClipboardCheck,
-  LuFlameKindling,
-  LuGithub,
-} from "@qwikest/icons/lucide";
+  Clipboard,
+  ClipboardCheck,
+  Contact,
+  Laptop,
+  MailOpen,
+  MapPin,
+  Rocket,
+} from "~/components/icons";
 
-import QwikLogo from "~/public/favicon.svg?jsx";
+import Avatar from "~/public/images/avatar.png?jsx";
 
-const packageManagers = {
-  bun: "bunx",
-  pnpm: "pnpx",
-  npm: "npx",
-  yarn: "yarn dlx",
-};
-
-type PackageManagers = keyof typeof packageManagers;
+const buttonClasses =
+  "ring-offset-background focus-visible:ring-ring border-input bg-background hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center rounded-md border text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
 
 export default component$(() => {
-  useStylesScoped$(`
-  .layout {
-    background-image: radial-gradient(hsla(0, 0%, 84%, 0.25) 1px, transparent 0),
-      radial-gradient(hsla(0, 0%, 65%, 0.2) 1px, transparent 0);
-    background-size: 50px 50px;
-    background-position:
-      0 0,
-      25px 25px;
-    -webkit-animation: slide 2s linear infinite;
-    animation: slide 4s linear infinite;
-  }
-
-  @keyframes slide {
-    100% {
-      background-position:
-        50px 0,
-        125px 25px;
-    }
-  }
-
-  .cards:hover > .card::after {
-    opacity: 1;
-  }
-
-  .card::before {
-    background: radial-gradient(
-      800px circle at var(--mouse-x) var(--mouse-y),
-      rgba(255, 255, 255, 0.06),
-      transparent 40%
-    );
-    z-index: 3;
-  }
-
-  .card::after {
-    background: radial-gradient(
-      600px circle at var(--mouse-x) var(--mouse-y),
-      rgba(255, 255, 255, 0.4),
-      transparent 40%
-    );
-    z-index: 1;
-  }
-  `);
-
   const isCopied = useSignal(false);
-  const showDropdown = useSignal(false);
-  const dropdownButtonsRef = useStore<HTMLButtonElement[]>([]);
 
-  const copyToClipboard = $((pm: PackageManagers) => {
-    showDropdown.value = false;
+  const handleEmailClick = $((email: string) => {
+    navigator.clipboard.writeText(email);
     isCopied.value = true;
-
-    const text = `${packageManagers[pm]} degit rajput-hemant/qwik-template <project-name>`;
-
-    try {
-      navigator.clipboard.writeText(text);
-      isCopied.value = true;
-    } catch (err) {
-      console.error("Failed to copy: ", err);
-    }
   });
 
   return (
-    <main class="layout grid min-h-screen w-full place-items-center bg-[#141414] bg-fixed text-white selection:bg-zinc-300 selection:text-black">
-      <section class="px-4">
-        <QwikLogo
-          alt="Next.js logo"
-          class="w-2h-28 mx-auto mb-6 h-28 md:max-w-full"
-        />
+    <div class="mx-auto mb-2 space-y-6 p-6 font-sans duration-500 animate-in slide-in-from-top-1/2">
+      {/* hero */}
+      <header class="flex flex-col items-center justify-center gap-6 duration-1000 animate-in slide-in-from-bottom-full">
+        <div class="w-28 overflow-hidden rounded-full border-2 shadow-inner md:w-36">
+          <Avatar
+            alt={siteConfig.author.name}
+            class="scale-105 duration-300 lg:hover:scale-110"
+          />
+        </div>
 
-        <div class="grid items-center gap-6">
-          <div class="flex flex-col justify-center space-y-4 text-center">
-            <div class="mb-6 space-y-2">
-              <h1 class="bg-gradient-to-r from-white to-gray-500 bg-clip-text text-3xl font-bold tracking-tighter text-transparent sm:text-5xl xl:text-6xl">
-                Qwikcity Starter Template
-              </h1>
+        <div class="flex flex-col items-center justify-center space-y-3">
+          <h1 class="text-2xl font-medium">{siteConfig.author.name}</h1>
 
-              <p class="mx-auto max-w-3xl text-sm text-zinc-200 sm:text-base md:text-xl">
-                A Qwik City template with TypeScript, TailwindCSS, Qwickest
-                Icons and pre-configured with ESLint, Prettier and Husky git
-                hooks.
-              </p>
-            </div>
+          <p class="text-sm text-muted-foreground/75 brightness-110">
+            <MapPin size={14} class="mb-1 mr-1 inline-flex" />
+            Mathura, India &nbsp;•&nbsp; bat/man
+          </p>
 
-            <div class="relative mx-auto max-w-xs rounded-xl border border-zinc-700 p-1 text-zinc-200 shadow-md duration-300 hover:shadow-black sm:max-w-full">
-              <p class="flex w-full cursor-pointer items-center gap-2 rounded-md bg-white/5 px-2 py-3 font-mono hover:bg-white/10">
-                <span class="text-orange-500">$</span>
+          <p class="mx-1 text-center leading-relaxed text-muted-foreground">
+            {siteConfig.author.description}
+          </p>
+        </div>
 
-                <span class="truncate">
-                  pnpx degit rajput-hemant/qwik-template {"<project-name>"}
-                </span>
-
-                <button
-                  onClick$={() => (showDropdown.value = !showDropdown.value)}
-                  class="text-zinc-400 transition-colors hover:text-white"
-                >
-                  {isCopied.value ? (
-                    <LuClipboardCheck class="h-5 w-5" />
-                  ) : (
-                    <LuClipboard class="h-5 w-5" />
+        {/* socials */}
+        <div class="flex justify-center gap-x-3">
+          {Object.values(siteConfig.links).map(
+            ({ title, href, icon: Icon }) => {
+              return (
+                <a
+                  key={title}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={title}
+                  class={cn(
+                    buttonClasses,
+                    "h-10 px-4 py-2",
+                    "h-12 w-12 rounded-full p-3 transition-all duration-300 hover:scale-105 hover:shadow"
                   )}
-                </button>
-              </p>
+                >
+                  <Icon />
+                </a>
+              );
+            }
+          )}
+        </div>
 
-              {showDropdown.value && (
-                <div class="absolute -right-20 top-8 z-10 rounded-xl border border-zinc-700 p-1 hover:border-zinc-600">
-                  <ul class="sticky flex flex-col rounded-md bg-zinc-800">
-                    {(Object.keys(packageManagers) as PackageManagers[]).map(
-                      (pm, i) => (
-                        <button
-                          key={i}
-                          ref={(el) => {
-                            dropdownButtonsRef[i] = el! as HTMLButtonElement;
-                          }}
-                          onClick$={() => copyToClipboard(pm)}
-                          class="m-0.5 w-20 cursor-pointer rounded-md px-3 py-0.5 outline-none ring-zinc-600 hover:bg-zinc-700/50 hover:text-sky-500 focus:ring-2"
-                        >
-                          {pm}
-                        </button>
-                      )
-                    )}
-                  </ul>
+        {/* portfolio website link */}
+        <div class="flex flex-col items-center justify-center gap-3 py-3 md:flex-row">
+          <a
+            href={siteConfig.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={cn(
+              buttonClasses,
+              "h-11 px-8",
+              "group gap-x-1 rounded-xl transition-all duration-300 hover:gap-x-2 hover:shadow"
+            )}
+          >
+            <Rocket class="h-5 transition-transform duration-700 group-hover:translate-x-36 group-hover:rotate-45" />
+
+            <span class="transition-transform duration-700 group-hover:-translate-x-7">
+              Website & Portfolio
+            </span>
+          </a>
+        </div>
+      </header>
+
+      <div class="h-px w-full bg-border" />
+
+      {/* services */}
+      <div class="space-y-5">
+        <div class="flex items-center gap-2 px-3">
+          <Laptop size={24} />
+          <h2 class="text-lg font-medium md:text-xl">Services</h2>
+        </div>
+
+        <div class="space-y-3 duration-1000 animate-in slide-in-from-bottom-full">
+          {services.map(({ title, description, icon }, i) => (
+            <div
+              key={i}
+              style={{ backgroundImage: "url('/images/bg-gradient-1.svg')" }}
+              class="overflow-hidden rounded-xl border bg-contain bg-right bg-no-repeat shadow-sm transition-shadow duration-300 hover:shadow dark:bg-secondary"
+            >
+              <div class="grid grid-flow-col items-center justify-between gap-x-6 px-6 py-5 dark:backdrop-blur-[2px]">
+                <img
+                  src={icon}
+                  alt={title}
+                  width={40}
+                  height={40}
+                  class="dark:invert"
+                />
+
+                <div class="space-y-1 duration-1000 animate-in slide-in-from-bottom-full">
+                  <h3 class="font-medium md:text-lg">{title}</h3>
+
+                  <p class="text-sm text-muted-foreground">{description}</p>
                 </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="h-px w-full bg-border" />
+
+      {/* contact */}
+      <div class="space-y-4">
+        <div class="flex items-center gap-2 px-3">
+          <Contact size={24} />
+
+          <h2 class="text-lg font-medium md:text-xl">Get in Touch</h2>
+        </div>
+
+        <div
+          class="group cursor-pointer rounded-2xl border bg-emerald-200 bg-right bg-no-repeat p-2 text-black shadow-sm transition-all duration-1000 animate-in slide-in-from-bottom-full"
+          style={{ backgroundImage: "url('/images/bg-gradient-2.svg')" }}
+          onClick$={() => handleEmailClick(siteConfig.author.mail)}
+        >
+          <div class="flex flex-col space-y-3 p-6">
+            <div class="flex justify-between">
+              <MailOpen />
+
+              {isCopied.value ? (
+                <ClipboardCheck class="-my-3 -mr-2 h-6 w-6" />
+              ) : (
+                <Clipboard class="-my-3 -mr-2 h-6 w-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               )}
             </div>
 
-            <div class="flex flex-col items-center justify-center gap-4 md:flex-row">
-              <a
-                href="https://github.com/new?template_name=qwik-template&template_owner=rajput-hemant"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex rounded-full border border-zinc-700 px-6 py-3 duration-300 hover:bg-white/10 hover:shadow-md hover:shadow-black"
-              >
-                <LuFlameKindling class="mr-2 h-5 w-5" />
-                Use Template
-              </a>
+            <div class="text-lg font-medium md:text-xl">Drop Me an Email</div>
+          </div>
 
-              <a
-                href="https://github.com/rajput-hemant/qwik-template"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex rounded-full border border-zinc-700 px-6 py-3 duration-300 hover:bg-white/10 hover:shadow-md hover:shadow-black"
-              >
-                <LuGithub class="mr-2 h-5 w-5 " />
-                View Repo
-              </a>
+          <div class="space-y-3 p-6 pt-0">
+            <div class="flex flex-col text-lg md:flex-row md:items-center md:gap-2">
+              <span class="underline-offset-8 group-hover:underline">
+                {siteConfig.author.mail}
+              </span>
+
+              {isCopied.value && (
+                <span class="duration-500 animate-in slide-in-from-right-full">
+                  (Copied!)
+                </span>
+              )}
             </div>
+
+            <p class="text-sm leading-relaxed md:text-base">
+              Expect my rapid and eager reply - your message won&apos;t be kept
+              waiting!
+            </p>
           </div>
         </div>
-      </section>
+      </div>
 
-      <footer class="absolute inset-x-0 bottom-4 flex justify-center">
-        <em class="text-zinc-500">
-          &copy;{new Date().getFullYear()}{" "}
-          <a
-            href="https://github.com/rajput-hemant"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="underline-offset-4 duration-150 hover:text-zinc-400 hover:underline"
-          >
-            rajput-hemant@github
-          </a>
-        </em>
-      </footer>
-    </main>
+      <div class="h-px w-full bg-border" />
+    </div>
   );
 });
-
-export const head: DocumentHead = {
-  title: "Qwik City Template",
-  meta: [
-    {
-      name: "description",
-      content:
-        "A Minimal Qwik City Starter Template with TypeScript, Tailwind CSS, and pre-configured with ESLint, Prettier, and Husky.",
-    },
-  ],
-};

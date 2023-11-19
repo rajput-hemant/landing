@@ -1,6 +1,8 @@
 import { component$, Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 
+import { SiteFooter } from "~/components/site-footer";
+import { SiteHeader } from "~/components/site-header";
 import { ThemeProvider } from "~/components/theme";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
@@ -17,7 +19,11 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 export default component$(() => {
   return (
     <ThemeProvider>
-      <Slot />
+      <div class="mx-auto max-w-xl border bg-background text-foreground shadow-xl backdrop-blur-sm sm:my-6 sm:rounded-xl">
+        <SiteHeader />
+        <Slot />
+        <SiteFooter />
+      </div>
     </ThemeProvider>
   );
 });

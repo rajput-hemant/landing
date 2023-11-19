@@ -27,7 +27,7 @@ export default component$(() => {
         <RouterHead />
         <ThemeScript />
       </head>
-      <body lang="en">
+      <body lang="en" class="bg-slate-50 dark:bg-black">
         <RouterOutlet />
         <TailwindIndicator />
         <ServiceWorkerRegister />
