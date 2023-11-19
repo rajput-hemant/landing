@@ -1,4 +1,5 @@
 import { $, component$, useSignal } from "@builder.io/qwik";
+import type { DocumentHead } from "@builder.io/qwik-city";
 
 import { services } from "~/config/constants";
 import { siteConfig } from "~/config/site";
@@ -185,3 +186,13 @@ export default component$(() => {
     </div>
   );
 });
+
+export const head: DocumentHead = {
+  title: siteConfig.name,
+  meta: [
+    {
+      name: "description",
+      content: siteConfig.description,
+    },
+  ],
+};
