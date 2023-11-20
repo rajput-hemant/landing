@@ -1,82 +1,83 @@
 <div align=center>
 
-![views] ![stars] ![forks] ![issues] ![license] ![repo-size]
+[![ntl-badge]][ntl-link] ![views] ![stars] ![forks] ![issues] ![license] ![repo-size]
 
-<img src="public/favicon.svg" alt="Qwik Logo" style="width:150px; height:150px"/>
-
-# Qwik Starter Template ⚡️
-
-### A Minimal Qwik City Starter Template with TypeScript, Tailwind CSS, and pre-configured with ESLint, Prettier, and Husky.
+  <h1>
+  <a
+  href="https://landing.rajputhemant.me"
+  target="_blank"
+  rel="noopener noreferrer">
+  landing.rajputhemant.me
+  </a>
+  </h1>
+  <p>🌀 Personal landing page built with QwikCity, TypeScript and Tailwind CSS.</p>
 
 </div>
 
-## Features
+## Introduction
 
-- ⚡ **[Qwik](https://qwik.builder.io/)** - Deliver instant apps at scale, Build instantly-interactive web apps without effort.
-- 🎨 **[Tailwind CSS](https://tailwindcss.com/)** - A Utility-First CSS Framework for Rapid UI Development
-- 📦 **[TypeScript](https://www.typescriptlang.org/)** - A typed superset of JavaScript that compiles to plain JavaScript
-- 📝 **[ESLint](https://eslint.org/)** - The pluggable linting utility for JavaScript and JSX
-- 🛠 **[Prettier](https://prettier.io/)** - An opinionated code formatter
-- 🐶 **[Husky](https://typicode.github.io/husky/#/)** - A tool that makes Git hooks easy
-- 🚫 **[lint-staged](https://github.com/okonet/lint-staged)** - Run linters against staged git files
-- 📄 **[commitlint](https://commitlint.js.org/#/)** - Lint commit messages
-- 📦 **[bun](https://bun.sh)** - A JavaScript runtime w/ Fast, disk space efficient package manager
+This website was built from scratch using QwikCity. It will undergo regular updates in the future.
+
+## Performance
+
+### PageSpeed Insights : Desktop
+
+Report URL: https://pagespeed.web.dev/analysis/https-landing-rajputhemant-me/yk4gt3apuv?form_factor=desktop
+
+![PageSpeed Insights - Desktop](https://graph.org/file/1c11a56a48881e1dbdb49.png)
+
+### PageSpeed Insights : Mobile
+
+Report URL: https://pagespeed.web.dev/analysis/https-landing-rajputhemant-me/yk4gt3apuv?form_factor=mobile
+
+![PageSpeed Insights - Desktop](https://graph.org/file/d09dab61d55e65f2145f2.png)
 
 ## Getting Started
 
-**Install `degit` globally**
+If you are interested in running this project on your local machine, you can do so in just 3 easy steps below.
+
+### 1. Clone this template using one of the three ways:
+
+1. Clone using git
+
+   ```bash
+   git clone https://github.com/rajput-hemant/landing
+   ```
+
+2. Using `create-next-app`
+
+   ```bash
+   npx create-next-app -e https://github.com/rajput-hemant/landing <project-name>
+   ```
+
+3. Using `degit`
+
+   ```bash
+   npx degit rajput-hemant/landing YOUR_APP_NAME
+   ```
+
+4. Deploy to Vercel or Netlify, etc
+
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/rajput-hemant/landing)
+   [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/rajput-hemant/landing)
+
+### 2. Install dependencies
+
+This project uses `bun` as the default package manager. If you want to use `pnpm`, `npm` or `yarn`, you need to remove the `bun.lockb` file and run `pnpm i`, `npm i` or `yarn` to generate the lock file for the respective package manager.
 
 ```bash
-bun i -g degit || pnpm i -g degit || yarn global add degit || npm i -g degit
+bun i
 ```
 
-**Create a new project from this template**
+### 3. Run the development server
+
+You can start the server using this command:
 
 ```bash
-degit rajput-hemant/qwik-template <project-name>
-cd <project-name>
+bun dev
 ```
 
-**Install dependencies**
-
-```bash
-bun i || pnpm i || yarn || npm i
-```
-
-**Initialize a new git repository _(Optional)_:**
-
-```bash
-git init
-git add .
-git commit --no-verify -m "init"
-```
-
-## Available Scripts
-
-Check out the [package.json](package.json) for all available scripts.
-
-## After Installation Checklist
-
-- [ ] Update `package.json` with your project details.
-- [ ] Update `README.md` with your project details.
-- [ ] Update `LICENSE` with your name and year.
-
-## Switching Package Manager
-
-This template uses [bun](https://bun.sh/docs/cli/install) as the default package manager. If you want to use `pnpm`, `npm` or `yarn`, you need to remove the `bun.lockb` file and run `pnpm i`, `npm i` or `yarn` to generate the lock file for the respective package manager.
-
-## Deployments
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/rajput-hemant/qwik-template)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/rajput-hemant/qwik-template)
-
-You can also check out other deployment options, run
-
-```
-bun qwik add
-```
-
-[Read more](https://qwik.builder.io/docs/deployments)
+Open [http://localhost:5173](http://localhost:5173) with your browser to see the result. You can start editing the page by modifying `src/routes/index.tsx`.
 
 ## License
 
@@ -94,12 +95,14 @@ _Note: It may take up to 24h for the [contrib.rocks][contrib-rocks] plugin to up
 
 <!----------------------------------{ Labels }--------------------------------->
 
-[views]: https://komarev.com/ghpvc/?username=qwik-template&label=view%20counter&color=red&style=flat
-[repo-size]: https://img.shields.io/github/repo-size/rajput-hemant/qwik-template
-[issues]: https://img.shields.io/github/issues-raw/rajput-hemant/qwik-template
-[license]: https://img.shields.io/github/license/rajput-hemant/qwik-template
-[forks]: https://img.shields.io/github/forks/rajput-hemant/qwik-template?style=flat
-[stars]: https://img.shields.io/github/stars/rajput-hemant/qwik-template
-[contributors]: https://contrib.rocks/image?repo=rajput-hemant/qwik-template&max=500
-[contributors-graph]: https://github.com/rajput-hemant/qwik-template/graphs/contributors
-[contrib-rocks]: https://contrib.rocks/preview?repo=rajput-hemant%qwik-template
+[views]: https://komarev.com/ghpvc/?username=landing&label=view%20counter&color=red&style=flat
+[repo-size]: https://img.shields.io/github/repo-size/rajput-hemant/landing
+[issues]: https://img.shields.io/github/issues-raw/rajput-hemant/landing
+[license]: https://img.shields.io/github/license/rajput-hemant/landing
+[forks]: https://img.shields.io/github/forks/rajput-hemant/landing?style=flat
+[stars]: https://img.shields.io/github/stars/rajput-hemant/landing
+[contributors]: https://contrib.rocks/image?repo=rajput-hemant/landing&max=500
+[contributors-graph]: https://github.com/rajput-hemant/landing/graphs/contributors
+[contrib-rocks]: https://contrib.rocks/preview?repo=rajput-hemant%landing
+[ntl-badge]: https://api.netlify.com/api/v1/badges/bc9084ba-6325-4844-82b9-3b5ef6fde08f/deploy-status
+[ntl-link]: https://app.netlify.com/sites/landing-rajputhemant/deploys
