@@ -12,7 +12,11 @@ export const siteConfig = {
     bio: "Software Developer",
     mail: "rajput.hemant2001@gmail.com",
     description:
-      "Seasoned software engineer especially in frontend side, with a passion for creating pixel-perfect web experiences.",
+      "Final-year student passionate about frontend development, adept in JavaScript, and committed to crafting pixel-perfect web experiences.",
+    location: "Mathura, India",
+    pronouns: "bat/man",
+    resume:
+      "https://docs.google.com/document/d/1KZvtS-e1E0qXDOTl0sJEbPJx6sBF3NBXkhhKzbStVGc",
   },
 
   links: {

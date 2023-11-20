@@ -4,7 +4,7 @@ import { siteConfig } from "~/config/site";
 
 export const SiteFooter = component$(() => (
   <footer class="flex w-full justify-center py-6 text-sm text-foreground/60">
-    &copy; {new Date().getFullYear()} by&nbsp;
+    &copy;{new Date().getFullYear()} by&nbsp;
     <a
       href={siteConfig.links.github.href}
       target="_blank"

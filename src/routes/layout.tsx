@@ -19,7 +19,10 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 export default component$(() => {
   return (
     <ThemeProvider>
-      <div class="mx-auto max-w-xl border bg-background text-foreground shadow-xl backdrop-blur-sm sm:my-6 sm:rounded-xl">
+      <div
+        class="mx-auto max-w-xl border bg-background text-foreground shadow-xl backdrop-blur-sm sm:my-6 sm:rounded-xl"
+        style={{ backgroundImage: "url('/images/noise.png')" }}
+      >
         <SiteHeader />
         <Slot />
         <SiteFooter />
