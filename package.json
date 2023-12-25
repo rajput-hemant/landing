@@ -50,7 +50,7 @@
     "typescript": "^5.2.2",
     "undici": "^6.2.1",
     "vercel": "^33.0.1",
-    "vite": "^4.4.11",
+    "vite": "^5.0.10",
     "vite-tsconfig-paths": "^4.2.1"
   },
   "trustedDependencies": [
