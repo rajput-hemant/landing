@@ -57,7 +57,7 @@
     "sharp"
   ],
   "engines": {
-    "node": ">=15.0.0"
+    "node": ">=20.10.0"
   },
   "commitlint": {
     "extends": [
