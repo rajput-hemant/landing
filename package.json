@@ -42,7 +42,7 @@
     "eslint-plugin-tailwindcss": "^3.13.0",
     "husky": "^8.0.0",
     "lint-staged": "^15.0.2",
-    "netlify-cli": "^17.10.1",
+    "netlify-cli": "^17.11.0",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
@@ -50,7 +50,7 @@
     "typescript": "^5.2.2",
     "undici": "^6.2.1",
     "vercel": "^33.0.1",
-    "vite": "^4.4.11",
+    "vite": "^5.0.10",
     "vite-tsconfig-paths": "^4.2.1"
   },
   "trustedDependencies": [
