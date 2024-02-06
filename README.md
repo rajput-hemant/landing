@@ -1,6 +1,6 @@
 <div align=center>
 
-[![ntl-badge]][ntl-link] ![views] ![stars] ![forks] ![issues] ![license] ![repo-size]
+![views] ![stars] ![forks] ![issues] ![license] ![repo-size]
 
   <h1>
   <a
@@ -104,5 +104,3 @@ _Note: It may take up to 24h for the [contrib.rocks][contrib-rocks] plugin to up
 [contributors]: https://contrib.rocks/image?repo=rajput-hemant/landing&max=500
 [contributors-graph]: https://github.com/rajput-hemant/landing/graphs/contributors
 [contrib-rocks]: https://contrib.rocks/preview?repo=rajput-hemant%landing
-[ntl-badge]: https://api.netlify.com/api/v1/badges/bc9084ba-6325-4844-82b9-3b5ef6fde08f/deploy-status
-[ntl-link]: https://app.netlify.com/sites/landing-rajputhemant/deploys
