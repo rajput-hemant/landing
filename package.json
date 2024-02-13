@@ -40,7 +40,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-qwik": "^1.4.4",
     "eslint-plugin-tailwindcss": "^3.14.2",
-    "husky": "^8.0.3",
+    "husky": "^9.0.10",
     "lint-staged": "^15.2.2",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
