@@ -1,3 +1,4 @@
+/* eslint-disable qwik/no-use-visible-task */
 import { useContext, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 
 import type { Theme } from "~/components/theme";

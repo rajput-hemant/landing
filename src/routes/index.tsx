@@ -178,9 +178,9 @@ export default component$(() => {
               <MailOpen />
 
               {isCopied.value ? (
-                <ClipboardCheck class="-my-3 -mr-2 h-6 w-6" />
+                <ClipboardCheck class="-my-3 -mr-2 size-6" />
               ) : (
-                <Clipboard class="-my-3 -mr-2 h-6 w-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <Clipboard class="-my-3 -mr-2 size-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               )}
             </div>
 
