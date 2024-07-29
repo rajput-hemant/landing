@@ -32,7 +32,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@netlify/edge-functions": "^2.10.0",
     "@types/eslint": "^9.6.0",
-    "@types/node": "^20.14.13",
+    "@types/node": "^22.0.0",
     "@typescript-eslint/eslint-plugin": "^7.17.0",
     "@typescript-eslint/parser": "^7.17.0",
     "autoprefixer": "^10.4.19",
