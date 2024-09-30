@@ -23,18 +23,21 @@ export function useTheme() {
 
       html.classList.add(theme.value);
       html.dataset.theme = theme.value;
-
       if (theme.value === "system") {
-        media.matches
-          ? html.classList.add("dark")
-          : html.classList.remove("dark");
+        if (media.matches) {
+          html.classList.add("dark");
+        } else {
+          html.classList.remove("dark");
+        }
       }
 
       const colorSchemeListener = () => {
         if (theme.value !== "system") return;
-        media.matches
-          ? html.classList.add("dark")
-          : html.classList.remove("dark");
+        if (media.matches) {
+          html.classList.add("dark");
+        } else {
+          html.classList.remove("dark");
+        }
       };
       media.addEventListener("change", colorSchemeListener);
 
