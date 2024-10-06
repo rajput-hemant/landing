@@ -28,6 +28,7 @@ const config = {
     "^~/public/(.*)$",
     "^[./]",
   ],
+  experimentalTernaries: true,
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
 };
 

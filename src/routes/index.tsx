@@ -177,11 +177,10 @@ export default component$(() => {
             <div class="flex justify-between">
               <MailOpen />
 
-              {isCopied.value ? (
+              {isCopied.value ?
                 <ClipboardCheck class="-my-3 -mr-2 size-6" />
-              ) : (
-                <Clipboard class="-my-3 -mr-2 size-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              )}
+              : <Clipboard class="-my-3 -mr-2 size-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              }
             </div>
 
             <div class="text-lg font-medium md:text-xl">Drop Me an Email</div>

@@ -4,10 +4,10 @@
 
   <h1>
   <a
-  href="https://landing.rajputhemant.me"
+  href="https://landing.rajputhemant.tech"
   target="_blank"
   rel="noopener noreferrer">
-  landing.rajputhemant.me
+  landing.rajputhemant.tech
   </a>
   </h1>
   <p>🌀 Personal landing page built with QwikCity, TypeScript and Tailwind CSS.</p>
@@ -47,13 +47,13 @@ If you are interested in running this project on your local machine, you can do 
 2. Using `create-next-app`
 
    ```bash
-   npx create-next-app -e https://github.com/rajput-hemant/landing <project-name>
+   bunx create-next-app -e https://github.com/rajput-hemant/landing <project-name>
    ```
 
 3. Using `degit`
 
    ```bash
-   npx degit rajput-hemant/landing YOUR_APP_NAME
+   bunx degit rajput-hemant/landing <YOUR_APP_NAME>
    ```
 
 4. Deploy to Vercel or Netlify, etc
