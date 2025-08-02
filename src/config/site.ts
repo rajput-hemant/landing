@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Hemant Rajput | Software Developer",
   description:
     "Hemant Rajput is a Software Developer who is passionate about building solutions and contributing to open source communities",
-  url: "https://rajputhemant.tech",
+  url: "https://rajputhemant.dev",
 
   author: {
     name: "Hemant Rajput",
