@@ -37,7 +37,7 @@
     "@typescript-eslint/eslint-plugin": "8.35.0",
     "@typescript-eslint/parser": "8.35.0",
     "autoprefixer": "^10.4.21",
-    "eslint": "^8.57.1",
+    "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-qwik": "^1.14.1",
     "eslint-plugin-tailwindcss": "^3.18.0",
